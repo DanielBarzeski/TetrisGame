@@ -1,0 +1,14 @@
+
+TETRIS GAME:
+
+Controls:
+Move Left: Arrow Left
+Move Right: Arrow Right
+Rotate Block: Arrow Up
+Drop Block: Arrow Down
+Soft Drop: Space bar
+
+clearing row = 10 points
+block falls = 5 points
+
+Good Luck and Have Fun!
