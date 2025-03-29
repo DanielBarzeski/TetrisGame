@@ -3,16 +3,17 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class BoardFactory {
-    private final int[][] matrix;
-    private int score;
+    protected final int[][] matrix;
     protected final ArrayList<Block> blocks;
     private Block currentBlock, nextBlock;
-    private Point ghostBlockPosition;
+    protected final Point ghostBlockPosition;
+    private int score;
 
     public BoardFactory() {
-        Block.setNextId();
         this.matrix = new int[Game.ROWS][Game.COLS];
         this.blocks = new ArrayList<>();
+        this.ghostBlockPosition = new Point();
+        Block.setNextId();
     }
 
     public void drawGame(Graphics g) {
@@ -139,10 +140,6 @@ public class BoardFactory {
         return blocks.stream().filter(block -> block.getId() == id).findFirst().orElse(null);
     }
 
-    public int[][] getMatrix() {
-        return matrix;
-    }
-
     public int getScore() {
         return score;
     }
@@ -161,10 +158,6 @@ public class BoardFactory {
 
     public void setNextBlock(Block nextBlock) {
         this.nextBlock = nextBlock;
-    }
-
-    public void setGhostBlockPosition(Point ghostBlockPosition) {
-        this.ghostBlockPosition = ghostBlockPosition;
     }
 
     public void setScore(int score) {

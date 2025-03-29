@@ -14,7 +14,7 @@ public class Board extends BoardHelper {
                     int boardX = block.getX() + col;
                     int boardY = block.getY() + row;
                     if (boardX >= 0 && boardX < Game.COLS && boardY >= 0 && boardY < Game.ROWS)
-                        getMatrix()[boardY][boardX] = 0;
+                        matrix[boardY][boardX] = 0;
                 }
             }
         }
@@ -28,19 +28,19 @@ public class Board extends BoardHelper {
                     int boardX = block.getX() + col;
                     int boardY = block.getY() + row;
                     if (boardX >= 0 && boardX < Game.COLS && boardY >= 0 && boardY < Game.ROWS)
-                        getMatrix()[boardY][boardX] = block.getId();
+                        matrix[boardY][boardX] = block.getId();
                 }
             }
         }
     }
 
     private void clearRow(int row) {
-        IntStream.range(0, Game.COLS).forEach(col -> getMatrix()[row][col] = 0);
+        IntStream.range(0, Game.COLS).forEach(col -> matrix[row][col] = 0);
     }
 
     private void shiftDown(int fromRow) {
-        IntStream.iterate(fromRow, row -> row > 0, row -> row - 1).forEach(row -> System.arraycopy(getMatrix()[row - 1], 0, getMatrix()[row], 0, Game.COLS));
-        IntStream.range(0, Game.COLS).forEach(col -> getMatrix()[0][col] = 0);
+        IntStream.iterate(fromRow, row -> row > 0, row -> row - 1).forEach(row -> System.arraycopy(matrix[row - 1], 0, matrix[row], 0, Game.COLS));
+        IntStream.range(0, Game.COLS).forEach(col -> matrix[0][col] = 0);
     }
 
     public synchronized void dropBlock() {
@@ -61,7 +61,7 @@ public class Board extends BoardHelper {
         for (int row = 0; row < Game.ROWS; row++) {
             boolean isFull = true;
             for (int col = 0; col < Game.COLS; col++) {
-                if (getMatrix()[row][col] == 0) {
+                if (matrix[row][col] == 0) {
                     isFull = false;
                     break;
                 }

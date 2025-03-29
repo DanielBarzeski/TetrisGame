@@ -22,11 +22,13 @@ public class SoundManager {
         System.out.println(fileName + " sound does no exist.");
         return null;
     }
+
     public static void rewindBackgroundMusic() {
         if (backgroundMusic != null) {
             backgroundMusic.setFramePosition(0); // Rewind to the beginning
         }
     }
+
     public static void playBackgroundMusic() {
         if (backgroundMusic != null && !backgroundMusic.isRunning()) {
             backgroundMusic.loop(Clip.LOOP_CONTINUOUSLY);

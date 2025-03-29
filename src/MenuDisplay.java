@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MenuDisplay extends JPanel {
-    private final JButton pause,show;
+    private final JButton pause, show;
 
     public MenuDisplay(int width, int height) {
         setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -43,7 +43,7 @@ public class MenuDisplay extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.black);
-        g.drawRect(0, 0, getWidth()-1, getHeight()-1);
+        g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
         Game.CONTROL_BOARD().drawMenu(g);
     }
 
