@@ -46,7 +46,7 @@ public class GameDisplay extends JPanel {
     }
 
     public void run() {
-        new Timer(300, e -> {
+        new Timer(400, e -> {
             if (!Game.isFINISHED() && !Game.isPAUSED()) {
                 Game.CONTROL_BOARD().moveBlock(0, 1);
                 repaint();
